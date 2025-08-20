@@ -17,5 +17,5 @@ include_directories(include)
 # Add the executable
 
 add_executable(Array_function
- src/main.
+ src/main.c
  src/array_function.c)

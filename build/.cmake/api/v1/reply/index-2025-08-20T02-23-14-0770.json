@@ -126,6 +126,10 @@
 						}
 					}
 				]
+			},
+			"query.json:Zone.Identifier" : 
+			{
+				"error" : "unknown query file"
 			}
 		}
 	}
