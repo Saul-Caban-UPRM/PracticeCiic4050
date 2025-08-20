@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/saul/PracticeExercises/build",
+  "command": "/usr/bin/gcc  -I/home/saul/PracticeExercises/include -g -o CMakeFiles/Array_function.dir/src/main.c.o -c /home/saul/PracticeExercises/src/main.c",
+  "file": "/home/saul/PracticeExercises/src/main.c",
+  "output": "CMakeFiles/Array_function.dir/src/main.c.o"
+},
+{
+  "directory": "/home/saul/PracticeExercises/build",
+  "command": "/usr/bin/gcc  -I/home/saul/PracticeExercises/include -g -o CMakeFiles/Array_function.dir/src/array_function.c.o -c /home/saul/PracticeExercises/src/array_function.c",
+  "file": "/home/saul/PracticeExercises/src/array_function.c",
+  "output": "CMakeFiles/Array_function.dir/src/array_function.c.o"
+}
+]
