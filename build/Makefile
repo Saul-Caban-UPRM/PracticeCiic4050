@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saul/PracticeExercises
+CMAKE_SOURCE_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saul/PracticeExercises/build
+CMAKE_BINARY_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saul/PracticeExercises/build/CMakeFiles /home/saul/PracticeExercises/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saul/PracticeExercises/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ Array_function/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/build
 .PHONY : Array_function/fast
 
-src/array_function.o: src/array_function.c.o
-.PHONY : src/array_function.o
+src/functions.o: src/functions.c.o
+.PHONY : src/functions.o
 
 # target to build an object file
-src/array_function.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/array_function.c.o
-.PHONY : src/array_function.c.o
+src/functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.o
+.PHONY : src/functions.c.o
 
-src/array_function.i: src/array_function.c.i
-.PHONY : src/array_function.i
+src/functions.i: src/functions.c.i
+.PHONY : src/functions.i
 
 # target to preprocess a source file
-src/array_function.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/array_function.c.i
-.PHONY : src/array_function.c.i
+src/functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.i
+.PHONY : src/functions.c.i
 
-src/array_function.s: src/array_function.c.s
-.PHONY : src/array_function.s
+src/functions.s: src/functions.c.s
+.PHONY : src/functions.s
 
 # target to generate assembly for a file
-src/array_function.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/array_function.c.s
-.PHONY : src/array_function.c.s
+src/functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.s
+.PHONY : src/functions.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
@@ -186,9 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Array_function"
-	@echo "... src/array_function.o"
-	@echo "... src/array_function.i"
-	@echo "... src/array_function.s"
+	@echo "... src/functions.o"
+	@echo "... src/functions.i"
+	@echo "... src/functions.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -1,14 +1,14 @@
 [
 {
-  "directory": "/home/saul/PracticeExercises/build",
-  "command": "/usr/bin/gcc  -I/home/saul/PracticeExercises/include -g -o CMakeFiles/Array_function.dir/src/main.c.o -c /home/saul/PracticeExercises/src/main.c",
-  "file": "/home/saul/PracticeExercises/src/main.c",
+  "directory": "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build",
+  "command": "/usr/bin/gcc  -I/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/include -g -o CMakeFiles/Array_function.dir/src/main.c.o -c /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c",
+  "file": "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c",
   "output": "CMakeFiles/Array_function.dir/src/main.c.o"
 },
 {
-  "directory": "/home/saul/PracticeExercises/build",
-  "command": "/usr/bin/gcc  -I/home/saul/PracticeExercises/include -g -o CMakeFiles/Array_function.dir/src/array_function.c.o -c /home/saul/PracticeExercises/src/array_function.c",
-  "file": "/home/saul/PracticeExercises/src/array_function.c",
-  "output": "CMakeFiles/Array_function.dir/src/array_function.c.o"
+  "directory": "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build",
+  "command": "/usr/bin/gcc  -I/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/include -g -o CMakeFiles/Array_function.dir/src/functions.c.o -c /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c",
+  "file": "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c",
+  "output": "CMakeFiles/Array_function.dir/src/functions.c.o"
 }
 ]

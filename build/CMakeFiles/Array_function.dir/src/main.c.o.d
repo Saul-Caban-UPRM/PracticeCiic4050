@@ -1,6 +1,6 @@
 CMakeFiles/Array_function.dir/src/main.c.o: \
- /home/saul/PracticeExercises/src/main.c /usr/include/stdc-predef.h \
- /usr/include/stdio.h \
+ /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c \
+ /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -49,4 +49,4 @@ CMakeFiles/Array_function.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/saul/PracticeExercises/include/array_function.h
+ /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/include/functions.h

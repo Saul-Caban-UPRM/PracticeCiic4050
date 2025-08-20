@@ -18,4 +18,4 @@ include_directories(include)
 
 add_executable(Array_function
  src/main.c
- src/array_function.c)
+ src/functions.c)

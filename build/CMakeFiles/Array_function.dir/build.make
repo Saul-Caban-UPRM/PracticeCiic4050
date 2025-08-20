@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saul/PracticeExercises
+CMAKE_SOURCE_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saul/PracticeExercises/build
+CMAKE_BINARY_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Array_function.dir/depend.make
@@ -70,46 +70,46 @@ include CMakeFiles/Array_function.dir/progress.make
 include CMakeFiles/Array_function.dir/flags.make
 
 CMakeFiles/Array_function.dir/src/main.c.o: CMakeFiles/Array_function.dir/flags.make
-CMakeFiles/Array_function.dir/src/main.c.o: /home/saul/PracticeExercises/src/main.c
+CMakeFiles/Array_function.dir/src/main.c.o: /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c
 CMakeFiles/Array_function.dir/src/main.c.o: CMakeFiles/Array_function.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saul/PracticeExercises/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Array_function.dir/src/main.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Array_function.dir/src/main.c.o -MF CMakeFiles/Array_function.dir/src/main.c.o.d -o CMakeFiles/Array_function.dir/src/main.c.o -c /home/saul/PracticeExercises/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Array_function.dir/src/main.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Array_function.dir/src/main.c.o -MF CMakeFiles/Array_function.dir/src/main.c.o.d -o CMakeFiles/Array_function.dir/src/main.c.o -c /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c
 
 CMakeFiles/Array_function.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Array_function.dir/src/main.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saul/PracticeExercises/src/main.c > CMakeFiles/Array_function.dir/src/main.c.i
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c > CMakeFiles/Array_function.dir/src/main.c.i
 
 CMakeFiles/Array_function.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Array_function.dir/src/main.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saul/PracticeExercises/src/main.c -o CMakeFiles/Array_function.dir/src/main.c.s
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c -o CMakeFiles/Array_function.dir/src/main.c.s
 
-CMakeFiles/Array_function.dir/src/array_function.c.o: CMakeFiles/Array_function.dir/flags.make
-CMakeFiles/Array_function.dir/src/array_function.c.o: /home/saul/PracticeExercises/src/array_function.c
-CMakeFiles/Array_function.dir/src/array_function.c.o: CMakeFiles/Array_function.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saul/PracticeExercises/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Array_function.dir/src/array_function.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Array_function.dir/src/array_function.c.o -MF CMakeFiles/Array_function.dir/src/array_function.c.o.d -o CMakeFiles/Array_function.dir/src/array_function.c.o -c /home/saul/PracticeExercises/src/array_function.c
+CMakeFiles/Array_function.dir/src/functions.c.o: CMakeFiles/Array_function.dir/flags.make
+CMakeFiles/Array_function.dir/src/functions.c.o: /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c
+CMakeFiles/Array_function.dir/src/functions.c.o: CMakeFiles/Array_function.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Array_function.dir/src/functions.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Array_function.dir/src/functions.c.o -MF CMakeFiles/Array_function.dir/src/functions.c.o.d -o CMakeFiles/Array_function.dir/src/functions.c.o -c /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c
 
-CMakeFiles/Array_function.dir/src/array_function.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Array_function.dir/src/array_function.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saul/PracticeExercises/src/array_function.c > CMakeFiles/Array_function.dir/src/array_function.c.i
+CMakeFiles/Array_function.dir/src/functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Array_function.dir/src/functions.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c > CMakeFiles/Array_function.dir/src/functions.c.i
 
-CMakeFiles/Array_function.dir/src/array_function.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Array_function.dir/src/array_function.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saul/PracticeExercises/src/array_function.c -o CMakeFiles/Array_function.dir/src/array_function.c.s
+CMakeFiles/Array_function.dir/src/functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Array_function.dir/src/functions.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c -o CMakeFiles/Array_function.dir/src/functions.c.s
 
 # Object files for target Array_function
 Array_function_OBJECTS = \
 "CMakeFiles/Array_function.dir/src/main.c.o" \
-"CMakeFiles/Array_function.dir/src/array_function.c.o"
+"CMakeFiles/Array_function.dir/src/functions.c.o"
 
 # External object files for target Array_function
 Array_function_EXTERNAL_OBJECTS =
 
 Array_function: CMakeFiles/Array_function.dir/src/main.c.o
-Array_function: CMakeFiles/Array_function.dir/src/array_function.c.o
+Array_function: CMakeFiles/Array_function.dir/src/functions.c.o
 Array_function: CMakeFiles/Array_function.dir/build.make
 Array_function: CMakeFiles/Array_function.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saul/PracticeExercises/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Array_function"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Array_function"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Array_function.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/Array_function.dir/clean:
 .PHONY : CMakeFiles/Array_function.dir/clean
 
 CMakeFiles/Array_function.dir/depend:
-	cd /home/saul/PracticeExercises/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saul/PracticeExercises /home/saul/PracticeExercises /home/saul/PracticeExercises/build /home/saul/PracticeExercises/build /home/saul/PracticeExercises/build/CMakeFiles/Array_function.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050 /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050 /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles/Array_function.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Array_function.dir/depend
 

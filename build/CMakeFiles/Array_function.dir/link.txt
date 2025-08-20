@@ -1,1 +1,1 @@
-/usr/bin/gcc -g CMakeFiles/Array_function.dir/src/main.c.o CMakeFiles/Array_function.dir/src/array_function.c.o -o Array_function 
+/usr/bin/gcc -g CMakeFiles/Array_function.dir/src/main.c.o CMakeFiles/Array_function.dir/src/functions.c.o -o Array_function 

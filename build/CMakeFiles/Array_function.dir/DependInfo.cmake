@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/saul/PracticeExercises/src/array_function.c" "CMakeFiles/Array_function.dir/src/array_function.c.o" "gcc" "CMakeFiles/Array_function.dir/src/array_function.c.o.d"
-  "/home/saul/PracticeExercises/src/main.c" "CMakeFiles/Array_function.dir/src/main.c.o" "gcc" "CMakeFiles/Array_function.dir/src/main.c.o.d"
+  "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c" "CMakeFiles/Array_function.dir/src/functions.c.o" "gcc" "CMakeFiles/Array_function.dir/src/functions.c.o.d"
+  "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/main.c" "CMakeFiles/Array_function.dir/src/main.c.o" "gcc" "CMakeFiles/Array_function.dir/src/main.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

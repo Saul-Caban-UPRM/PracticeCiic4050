@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "array_function.h"
+#include "functions.h"
 
 int main() {
   int size;
@@ -9,10 +9,6 @@ int main() {
   scanf("%d", &size);
 
   int *arr = malloc(size * sizeof(int));
-  if (arr == NULL) {
-    printf("Memory allocation failed!\n");
-    return 1;
-  }
 
   printf("Enter %d elements:\n", size);
   for (int i = 0; i < size; i++) {
@@ -20,15 +16,8 @@ int main() {
   }
 
   SortArray(arr, size);
-  printf("Sorted array: ");
-
-  for (int i = 0; i < size; i++) {
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
   printf("Median: %.2f\n", CalculateMedian(arr, size));
-
-  printf("\n");
+  printf("Mean: %.2f\n", CalculateMean(arr, size));
   free(arr);
   return 0;
 }
