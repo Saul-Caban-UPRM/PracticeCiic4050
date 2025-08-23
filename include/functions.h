@@ -2,8 +2,8 @@
 #define INCLUDE_FUNCTIONS_H_
 void SortArray(int *arr, int size);
 
-double CalculateMedian(int *arr, int size);
+void TellJoke(int number);
 
-double CalculateMean(int *arr, int size);
+void GivePunchline(int number);
 
 #endif  // INCLUDE_FUNCTIONS_H_

@@ -2,42 +2,6 @@
 	"entries" : 
 	[
 		{
-			"name" : "Array_function_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build"
-		},
-		{
-			"name" : "Array_function_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "Array_function_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050"
-		},
-		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -91,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build"
+			"value" : "/home/saul/PracticeExercises/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -583,7 +547,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/saul/PracticeExercises/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -643,7 +607,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050"
+			"value" : "/home/saul/PracticeExercises"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -887,7 +851,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Array_function"
+			"value" : "JokeFunctions"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1184,6 +1148,42 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "JokeFunctions_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/saul/PracticeExercises/build"
+		},
+		{
+			"name" : "JokeFunctions_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "JokeFunctions_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/saul/PracticeExercises"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

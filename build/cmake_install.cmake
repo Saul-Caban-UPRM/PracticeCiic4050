@@ -1,4 +1,4 @@
-# Install script for directory: /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050
+# Install script for directory: /home/saul/PracticeExercises
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/saul/PracticeExercises/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -130,8 +130,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build",
-		"source" : "/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050"
+		"build" : "/home/saul/PracticeExercises/build",
+		"source" : "/home/saul/PracticeExercises"
 	},
 	"version" : 
 	{

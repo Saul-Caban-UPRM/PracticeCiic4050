@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/JokeFunctions.dir/src/main.c.o CMakeFiles/JokeFunctions.dir/src/functions.c.o -o JokeFunctions 

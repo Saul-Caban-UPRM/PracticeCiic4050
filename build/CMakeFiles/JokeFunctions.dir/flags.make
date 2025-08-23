@@ -4,7 +4,7 @@
 # compile C with /usr/bin/gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/include
+C_INCLUDES = -I/home/saul/PracticeExercises/include
 
 C_FLAGS = -g
 

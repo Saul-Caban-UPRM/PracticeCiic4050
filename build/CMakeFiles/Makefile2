@@ -54,16 +54,16 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050
+CMAKE_SOURCE_DIR = /home/saul/PracticeExercises
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build
+CMAKE_BINARY_DIR = /home/saul/PracticeExercises/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Array_function.dir/all
+all: CMakeFiles/JokeFunctions.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Array_function.dir/clean
+clean: CMakeFiles/JokeFunctions.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Array_function.dir
+# Target rules for target CMakeFiles/JokeFunctions.dir
 
 # All Build rule for target.
-CMakeFiles/Array_function.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=1,2,3 "Built target Array_function"
-.PHONY : CMakeFiles/Array_function.dir/all
+CMakeFiles/JokeFunctions.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JokeFunctions.dir/build.make CMakeFiles/JokeFunctions.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JokeFunctions.dir/build.make CMakeFiles/JokeFunctions.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saul/PracticeExercises/build/CMakeFiles --progress-num=1,2,3 "Built target JokeFunctions"
+.PHONY : CMakeFiles/JokeFunctions.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Array_function.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Array_function.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles 0
-.PHONY : CMakeFiles/Array_function.dir/rule
+CMakeFiles/JokeFunctions.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saul/PracticeExercises/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/JokeFunctions.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saul/PracticeExercises/build/CMakeFiles 0
+.PHONY : CMakeFiles/JokeFunctions.dir/rule
 
 # Convenience name for target.
-Array_function: CMakeFiles/Array_function.dir/rule
-.PHONY : Array_function
+JokeFunctions: CMakeFiles/JokeFunctions.dir/rule
+.PHONY : JokeFunctions
 
 # clean rule for target.
-CMakeFiles/Array_function.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/clean
-.PHONY : CMakeFiles/Array_function.dir/clean
+CMakeFiles/JokeFunctions.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JokeFunctions.dir/build.make CMakeFiles/JokeFunctions.dir/clean
+.PHONY : CMakeFiles/JokeFunctions.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

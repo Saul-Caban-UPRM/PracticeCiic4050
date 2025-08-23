@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -s")
 
 # Set the project name
 
-project(Array_function)
+project(JokeFunctions)
 
 # Include the current directory for header files
 
@@ -16,6 +16,6 @@ include_directories(include)
 
 # Add the executable
 
-add_executable(Array_function
+add_executable(JokeFunctions
  src/main.c
  src/functions.c)
