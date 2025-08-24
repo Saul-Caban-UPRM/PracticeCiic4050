@@ -1,19 +1,22 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "functions.h"
 
 int main() {
+  int *arr;
   int user_number;
-  for (int i = 0; i < 3; i++) {
-    int random_number =
-        ((rand() % 5) +
-         1);  // gives a number from 0 to 4. Adding 1 makes it 1 to 5
-    TellJoke(random_number);
-    printf("Enter a number (1-5):\n");
-    scanf("%d", &user_number);
-    GivePunchline(user_number);
+  int64_t final_sum;
+  printf("Enter a number (10-50):\n");
+  scanf("%d", &user_number);
+  if (user_number < 10 || user_number > 50) {
+    return EXIT_FAILURE;
   }
-
+  arr = malloc(user_number * sizeof(int));
+  FillArray(arr, user_number);
+  final_sum = SumArray(arr, user_number);
+  printf("%ld\n", final_sum);
+  free(arr);
   return 0;
 }

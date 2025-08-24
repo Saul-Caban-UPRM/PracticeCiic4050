@@ -1,9 +1,9 @@
 #ifndef INCLUDE_FUNCTIONS_H_
 #define INCLUDE_FUNCTIONS_H_
-void SortArray(int *arr, int size);
+#include <stdint.h>
 
-void TellJoke(int number);
+void FillArray(int* arr, int size);
 
-void GivePunchline(int number);
+int64_t SumArray(int* arr, int size);
 
 #endif  // INCLUDE_FUNCTIONS_H_
