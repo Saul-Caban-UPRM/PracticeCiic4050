@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/L2.dir/src/main.c.o CMakeFiles/L2.dir/src/functions.c.o -o L2  -lm 

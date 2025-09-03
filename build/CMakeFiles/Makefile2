@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Array_function.dir/all
+all: CMakeFiles/L2.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Array_function.dir/clean
+clean: CMakeFiles/L2.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Array_function.dir
+# Target rules for target CMakeFiles/L2.dir
 
 # All Build rule for target.
-CMakeFiles/Array_function.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=1,2,3 "Built target Array_function"
-.PHONY : CMakeFiles/Array_function.dir/all
+CMakeFiles/L2.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles --progress-num=1,2,3 "Built target L2"
+.PHONY : CMakeFiles/L2.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Array_function.dir/rule: cmake_check_build_system
+CMakeFiles/L2.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Array_function.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/L2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build/CMakeFiles 0
-.PHONY : CMakeFiles/Array_function.dir/rule
+.PHONY : CMakeFiles/L2.dir/rule
 
 # Convenience name for target.
-Array_function: CMakeFiles/Array_function.dir/rule
-.PHONY : Array_function
+L2: CMakeFiles/L2.dir/rule
+.PHONY : L2
 
 # clean rule for target.
-CMakeFiles/Array_function.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/clean
-.PHONY : CMakeFiles/Array_function.dir/clean
+CMakeFiles/L2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/clean
+.PHONY : CMakeFiles/L2.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

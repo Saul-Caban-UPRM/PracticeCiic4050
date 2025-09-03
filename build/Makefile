@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Array_function
+# Target rules for targets named L2
 
 # Build rule for target.
-Array_function: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Array_function
-.PHONY : Array_function
+L2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 L2
+.PHONY : L2
 
 # fast build rule for target.
-Array_function/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/build
-.PHONY : Array_function/fast
+L2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/build
+.PHONY : L2/fast
 
 src/functions.o: src/functions.c.o
 .PHONY : src/functions.o
 
 # target to build an object file
 src/functions.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/functions.c.o
 .PHONY : src/functions.c.o
 
 src/functions.i: src/functions.c.i
@@ -142,7 +142,7 @@ src/functions.i: src/functions.c.i
 
 # target to preprocess a source file
 src/functions.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/functions.c.i
 .PHONY : src/functions.c.i
 
 src/functions.s: src/functions.c.s
@@ -150,7 +150,7 @@ src/functions.s: src/functions.c.s
 
 # target to generate assembly for a file
 src/functions.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/functions.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/functions.c.s
 .PHONY : src/functions.c.s
 
 src/main.o: src/main.c.o
@@ -158,7 +158,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -166,7 +166,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -174,7 +174,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Array_function.dir/build.make CMakeFiles/Array_function.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L2.dir/build.make CMakeFiles/L2.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -185,7 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Array_function"
+	@echo "... L2"
 	@echo "... src/functions.o"
 	@echo "... src/functions.i"
 	@echo "... src/functions.s"

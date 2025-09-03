@@ -1,4 +1,4 @@
-CMakeFiles/Array_function.dir/src/functions.c.o: \
+CMakeFiles/L2.dir/src/functions.c.o: \
  /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/src/functions.c \
  /usr/include/stdc-predef.h \
  /home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/include/functions.h \
