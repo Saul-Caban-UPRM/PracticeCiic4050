@@ -14,15 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-Array_function_BINARY_DIR:STATIC=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/build
-
-//Value Computed by CMake
-Array_function_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Array_function_SOURCE_DIR:STATIC=/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 

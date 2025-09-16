@@ -19,4 +19,3 @@ include_directories(include)
 add_executable(L2
  src/main.c
  src/functions.c)
-target_link_libraries(L2 m)
