@@ -28,18 +28,16 @@ int main() {
 
   char buffer[41];
 
-  while (fgets(buffer, sizeof(buffer), file) != NULL) {
-    buffer[strcspn(buffer, "\n")] = '\0';  // Remove newline
-    mq_send(queue, buffer, 40, 0);
-  }
-  fclose(file);
+  while (f) fclose(file);
   sleep(1);
 
-  mq_send(queue, "-1", 40, 0);
-  mq_send(queue, "-1", 40, 0);
-  mq_close(queue);
+  mq_send(queue, "-1", 3, 0);
+  mq_send(queue, "-1", 3, 0);
+
   waitpid(pid1, NULL, 0);
   waitpid(pid2, NULL, 0);
 
+  mq_close(queue);
+  mq_unlink("/prime_queue");
   return 0;
 }
