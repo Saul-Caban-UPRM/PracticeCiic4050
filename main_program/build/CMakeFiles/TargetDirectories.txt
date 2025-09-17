@@ -1,0 +1,3 @@
+/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/main_program/build/CMakeFiles/main_program.dir
+/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/main_program/build/CMakeFiles/edit_cache.dir
+/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/main_program/build/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-Done processing ../include/functions.h
-Done processing ../src/functions.c
-Done processing ../src/main.c

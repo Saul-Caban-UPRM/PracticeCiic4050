@@ -1,212 +1,157 @@
-#!/usr/bin/env bash
-# test_performance.sh
-# Evaluates:
-# 1) Compiles the program
-# 2) Director/Actor lines exist (processes created)
-# 3) Participation order by roles (not exact text): D,A,D,A,D (collapsed by changes)
-# 4) Actor's Hamlet line: content match ignoring punctuation/quotes (word-based)
-# 5) Clean termination (exit 0 and Actor not left alive)
+#!/bin/bash
 
-set -u
-
-# Colors
+# --- Configuration ---
 GREEN='\033[0;32m'
 RED='\033[0;31m'
-YELLOW='\033[0;33m'
-NC='\033[0m'
-
+ORANGE='\033[0;33m'
+NC='\033[0m' # No Color
 SCORE=0
-TOTAL_TESTS=4   # (1) created, (2) participation order, (3) Hamlet content, (4) termination
+TOTAL_TESTS=4
+NUMBERS_FILE="numbers.txt"
+PRIME_COUNT=17 # Primes in numbers.txt
+QUEUE_NAME="/prime_queue" 
 
-# Paths (run from L2/test)
-SRC_DIR="../src"
-INC_FLAG="-I ../include"
-BIN="./theater"
-TIMEOUT_SEC=15
+# --- Cleanup from previous runs ---
+rm -f worker main $NUMBERS_FILE
 
-# ------------- Compilation -------------
-if [[ ! -f "$SRC_DIR/main.c" || ! -f "$SRC_DIR/functions.c" ]]; then
-  echo -e "${RED}main.c and/or functions.c not found in $SRC_DIR${NC}"
-  exit 1
+# --- Compilation ---
+echo "--- Compiling the programs ---"
+
+# Compile the worker
+gcc ../worker/src/main.c ../worker/src/functions.c -o worker -lrt
+if [ $? -ne 0 ]; then
+    echo -e "${ORANGE}trying to compile without functions.c${NC}"
+    gcc ../worker/src/main.c -o worker -lrt
+    if [ $? -ne 0 ]; then
+    echo -e "${RED}Compilation of worker.c failed. Exiting.${NC}"
+        exit 1
+        fi
 fi
-
-echo -e "${YELLOW}--- Compiling the program ---${NC}"
-set -o pipefail
-if ! gcc -Wall -Werror -O2 $INC_FLAG "$SRC_DIR/main.c" "$SRC_DIR/functions.c" -o "$BIN" 2>&1 | sed 's/^/gcc: /'; then
-  echo -e "${RED}Compilation failed.${NC}"
-  exit 1
-fi
-set +o pipefail
-echo -e "${GREEN}Compilation successful!${NC}"
-echo "----------------------------------------"
-
-# ------------- Run (capture output) -------------
-RUN_BIN="$BIN"
-# Enforce line-buffering if stdbuf exists (prevents reordering due to stdio buffering)
-if command -v stdbuf >/dev/null 2>&1; then
-  RUN_BIN="stdbuf -oL -eL $BIN"
-fi
-RUN_CMD="$RUN_BIN"
-if command -v timeout >/dev/null 2>&1; then
-  RUN_CMD="timeout ${TIMEOUT_SEC}s $RUN_BIN"
-fi
-
-echo -e "${YELLOW}--- Running program (capturing output) ---${NC}"
-output="$($RUN_CMD 2>&1)"
-exit_code=$?
-echo "$output"
-echo "----------------------------------------"
-
-# ------------- Helpers -------------
-first_line_index() {
-  local rx="$1"
-  local ln
-  ln="$(printf "%s\n" "$output" | grep -n -m1 -E "$rx" | cut -d: -f1)"
-  [[ -z "${ln:-}" ]] && echo 0 || echo "$ln"
-}
-
-# Build the FULL role sequence from speaker lines (preserve repeats), e.g. D,A,D,A,A,A,D,D,D
-role_seq_full="$(
-  printf "%s\n" "$output" \
-  | grep -E '^(Director|Actor) \(PID:' \
-  | sed -E 's/^Director \(PID:.*/D/; s/^Actor \(PID:.*/A/' \
-  | paste -sd "," -
-)"
-
-# ------------- Test 1: processes created -------------
-idx_dir_first=$(first_line_index "^Director \(PID:")
-idx_act_first=$(first_line_index "^Actor \(PID:")
-if [[ $idx_dir_first -gt 0 && $idx_act_first -gt 0 ]]; then
-  echo -e "${GREEN}Test 1 (processes created): PASSED${NC}"
-  ((SCORE++))
-else
-  echo -e "${RED}Test 1 (processes created): FAILED${NC}"
-  [[ $idx_dir_first -eq 0 ]] && echo -e "${RED}  - No line starting with 'Director (PID:' was found.${NC}"
-  [[ $idx_act_first -eq 0 ]] && echo -e "${RED}  - No line starting with 'Actor (PID:' was found.${NC}"
-fi
-
-# ------------- Test 2: exact participation order (roles, not text) -------------
-expected_seq="D,A,D,A,A,A,D,D"
-if [[ "$role_seq_full" == "$expected_seq" ]]; then
-  echo -e "${GREEN}Test 2 (exact participation order ${expected_seq}): PASSED${NC}"
-  ((SCORE++))
-else
-  echo -e "${RED}Test 2 (exact participation order ${expected_seq}): FAILED${NC}"
-  echo -e "${RED}  - Detected sequence: ${role_seq_full:-<empty>}${NC}"
-fi
-
-# ------------- Test 3: Hamlet (word-based content; supports single or multiple printf) -------------
-# Normalize: drop \r, lowercase, map ’/' to space, replace non-alnum with space,
-# trim, and squeeze spaces to a single one. Result: words separated by one space.
-normalize_words() {
-  tr -d '\r' \
-  | tr '[:upper:]' '[:lower:]' \
-  | sed "s/[’']/ /g" \
-  | awk '
-    {
-      gsub(/[^a-z0-9]+/, " ", $0);   # keep only words and spaces
-      gsub(/^[ \t]+|[ \t]+$/, "", $0);
-      gsub(/[ \t]+/, " ", $0);
-      print
-    }'
-}
-
-hamlet_plain="To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles, and by opposing end them."
-hamlet_norm="$(printf '%s' "$hamlet_plain" | normalize_words)"
-
-hamlet_ok=false
-best_sample=""
-
-# Read output into an array to allow lookahead/accumulation
-mapfile -t __lines < <(printf "%s\n" "$output")
-
-# Helper regex (bash [[ =~ ]] style)
-actor_prefix_re='^Actor \(PID: [0-9]+\): *'
-director_prefix_re='^Director \(PID: [0-9]+\):'
-
-for ((i=0; i<${#__lines[@]}; i++)); do
-  line="${__lines[i]}"
-
-  if [[ "$line" =~ $actor_prefix_re ]]; then
-    # Start accumulating the entire Actor turn until the Director speaks
-    buf=""
-    # From this Actor line forward…
-    for ((j=i; j<${#__lines[@]}; j++)); do
-      seg="${__lines[j]}"
-
-      # Stop when Director speaks (next turn)
-      if [[ "$seg" =~ $director_prefix_re ]]; then
-        break
-      fi
-
-      if [[ "$seg" =~ $actor_prefix_re ]]; then
-        # Strip "Actor (PID: N):" and optional spaces
-        seg="$(sed -E 's/^Actor \(PID: [0-9]+\): *//' <<<"$seg")"
-      fi
-
-      # Append with a space (join multi-line printf chunks)
-      buf+="$seg"$'\n'
-    done
-
-    # Normalize the concatenated Actor turn
-    buf_one_line="$(printf '%s' "$buf" | tr '\n' ' ')"
-    text_norm="$(printf '%s' "$buf_one_line" | normalize_words)"
-    best_sample="$text_norm"
-
-    # Content check (substring): students may add extra words before/after
-    if printf '%s' "$text_norm" | grep -F -q -- "$hamlet_norm"; then
-      hamlet_ok=true
-      break
+# Compile the main program
+gcc ../main_program/src/main.c ../main_program/src/functions.c -o main -lrt
+if [ $? -ne 0 ]; then
+    echo -e "${ORANGE}trying to compile without functions.c${NC}"
+    gcc ../main_program/src/main.c -o main -lrt
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}Compilation of main.c failed. Exiting.${NC}"
+        exit 1
     fi
-  fi
-done
+fi
+echo -e "${GREEN}Compilation successful!${NC}"
+echo "-------------------"
 
-if $hamlet_ok; then
-  echo -e "${GREEN}Test 3 (Hamlet line content): PASSED${NC}"
-  ((SCORE++))
+# --- Setup Test Environment ---
+echo "--- Setting up test environment ---"
+cat <<EOF > $NUMBERS_FILE
+1000000007
+1000000009
+1000000021
+1000000033
+1000000087
+1000000093
+1000000097
+1000000103
+1000000123
+1000000181
+1000000207
+1000000223
+1000000241
+1000000271
+1000000289
+1000000297
+1000000321
+1000000008
+1000000010
+1000000022
+1000000034
+1000000088
+1000000094
+1000000098
+1000000104
+1000000124
+1000000182
+1000000208
+1000000224
+1000000242
+EOF
+echo "$NUMBERS_FILE created."
+echo "-------------------"
+
+
+
+
+# --- Run the program and capture all output ---
+echo "--- Running the program and capturing output ---"
+# We run the main program and redirect all of its output (stdout and stderr) to a single file.
+#./main 2>&1 | tee main_output.txt
+./main > main_output.txt 2>&1 &
+main_pid=$!
+
+echo "Main program finished."
+echo "-------------------"
+
+# --- Test 1: Validate Worker Creation ---
+# Use pgrep to find all processes named 'worker' and count them.
+worker_pids=$(pgrep -f "\./worker")
+echo "$worker_pids"
+worker_count=$(echo "$worker_pids" | wc -l)
+
+if [ "$worker_count" -eq 2 ]; then
+    echo -e "${GREEN}Test 1 Passed: Two worker processes were created and are running.${NC}"
+    SCORE=$((SCORE + 1))
 else
-  echo -e "${RED}Test 3 (Hamlet line content): FAILED${NC}"
-  echo -e "${RED}  - No Actor turn whose content (ignoring punctuation/quotes) contains the expected verse.${NC}"
-  echo "      Expected (words): $hamlet_norm"
-  if [[ -n "$best_sample" ]]; then
-    echo "      First Actor candidate (normalized): $best_sample"
-  fi
+    echo -e "${RED}Test 1 Failed: Expected 2 worker processes, but found $worker_count.${NC}"
 fi
+echo "-------------------"
 
+# --- Test 2: Verify Message Queue was created ---
+QUEUE_CREATED=0;
 
-# ------------- Test 4: clean termination -------------
-actor_pid_line="$(printf "%s\n" "$output" | grep -m1 -E "^Actor \(PID: [0-9]+\):" || true)"
-actor_pid=""
-if [[ -n "$actor_pid_line" ]]; then
-  actor_pid="$(printf "%s" "$actor_pid_line" | sed -E 's/.*Actor \(PID: ([0-9]+)\).*/\1/')"
-fi
-
-terminated_ok=true
-[[ $exit_code -ne 0 ]] && terminated_ok=false
-if [[ -n "$actor_pid" ]]; then
-  if kill -0 "$actor_pid" 2>/dev/null; then
-    terminated_ok=false
-    echo -e "${RED}  - Actor PID $actor_pid is still alive after program exit (or PID was reused).${NC}"
-  fi
-fi
-
-if $terminated_ok; then
-  echo -e "${GREEN}Test 4 (clean termination): PASSED${NC}"
-  ((SCORE++))
+if [ -e "/dev/mqueue/$QUEUE_NAME" ]; then
+    echo -e "${GREEN}Test 2 Passed: Message queue '$QUEUE_NAME' was created.${NC}"
+    QUEUE_CREATED=1;
+    SCORE=$((SCORE + 1))
 else
-  echo -e "${RED}Test 4 (clean termination): FAILED${NC}"
-  [[ $exit_code -ne 0 ]] && echo -e "${RED}  - Program exit code: $exit_code (expected 0).${NC}"
+    echo -e "${RED}Test 2 Failed: Message queue '$QUEUE_NAME' was not created.${NC}"
 fi
+echo "Was the queue created?: " $QUEUE_CREATED
 
-# ------------- Summary -------------
-echo "----------------------------------------"
-echo -e "Tests Passed: ${SCORE} / ${TOTAL_TESTS}"
-grade=$(( SCORE * 100 / TOTAL_TESTS ))
-if [[ $SCORE -eq $TOTAL_TESTS ]]; then
-  echo -e "Final Grade: ${GREEN}${grade}%${NC}"
+
+wait $main_pid
+
+# --- Test 3: Validate Prime Numbers Found ---
+echo "--- Running Test 3: Validate prime numbers found ---"
+# Count the total number of "PRIME FOUND" messages in the captured output.
+total_primes_found=$(grep -c "PRIME FOUND" main_output.txt)
+
+
+if [ "$total_primes_found" -eq "$PRIME_COUNT" ]; then
+    echo -e "${GREEN}Test 3 Passed: Correct number of primes found (${total_primes_found}).${NC}"
+    SCORE=$((SCORE + 1))
 else
-  echo -e "Final Grade: ${YELLOW}${grade}%${NC}"
+    echo -e "${RED}Test 3 Failed: Expected to find $PRIME_COUNT primes, but found $total_primes_found.${NC}"
+fi
+echo "-------------------"
+
+# --- Test 4: Verify Message Queue Unlinked ---
+if [ ! -e "/dev/mqueue/$QUEUE_NAME" ] && [ "$QUEUE_CREATED" -eq 1 ]; then
+    echo -e "${GREEN}Test 4 Passed: Message queue '$QUEUE_NAME' was unlinked.${NC}"
+    SCORE=$((SCORE + 1))
+else
+    if [ "$QUEUE_CREATED" -eq 1 ]; then
+        echo -e "${RED}Test 4 Failed: Message queue '$QUEUE_NAME' still exists.${NC}"
+    else
+        echo -e "${RED}Test 4 Skipped: Message queue '$QUEUE_NAME' was never created.${NC}"
+    fi
 fi
 
-# Cleanup
-rm -f "$BIN"
+echo "-------------------"
+
+# --- Final Score ---
+echo "-------------------"
+echo "Tests Passed: $SCORE / $TOTAL_TESTS"
+FINAL_SCORE=$(( (SCORE * 100) / TOTAL_TESTS ))
+echo -e "Final Grade: ${GREEN}${FINAL_SCORE}%${NC}"
+
+# --- Cleanup ---
+#rm -f main worker main_output.txt worker_log_*.txt $NUMBERS_FILE
