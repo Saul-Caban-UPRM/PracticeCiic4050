@@ -1,3 +1,0 @@
-/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/worker/build/CMakeFiles/worker.dir
-/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/worker/build/CMakeFiles/edit_cache.dir
-/home/fslabs/os_070_2/GuthubLabs/PracticeCiic4050/worker/build/CMakeFiles/rebuild_cache.dir
