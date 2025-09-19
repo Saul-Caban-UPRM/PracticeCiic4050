@@ -1,0 +1,3 @@
+/home/saul/PracticeExercises/PracticeCiic4050/worker/build/CMakeFiles/worker.dir
+/home/saul/PracticeExercises/PracticeCiic4050/worker/build/CMakeFiles/edit_cache.dir
+/home/saul/PracticeExercises/PracticeCiic4050/worker/build/CMakeFiles/rebuild_cache.dir
