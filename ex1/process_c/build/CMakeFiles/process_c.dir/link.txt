@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/process_c.dir/src/main.c.o CMakeFiles/process_c.dir/src/functions.c.o -o process_c  -lm 

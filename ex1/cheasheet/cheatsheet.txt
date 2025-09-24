@@ -1,0 +1,153 @@
+#define _POSIX_C_SOURCE 200809L
+#include <fcntl.h>
+#include <mqueue.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#include "functions.h"
+/////////////////////////////////////INCLUDES///////////////////////////////
+
+void handle_signal(int signal){
+  do something here
+}
+
+struct sigaction sa;  // Name of variable 
+sa.sa_handler = handle_signal;
+if (sigaction(SIGINT, &sa, NULL) == -1) { // put the right signal!
+    perror("sigaction failed\n");
+    exit(1);
+  }
+
+Sends the signal to the child process PID, along side with the signal you want to send 
+kill(child_C, SIGUSR1);
+/////////////////////////////////////SIGNALS////////////////////////////////
+
+int fd = shm_open(SHM_NAME, O_CREAT | O_RDWR, 0666);
+ftruncate(fd, 100 * sizeof(double));
+arr = mmap(0, 100 * sizeof(double), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+if (arr == MAP_FAILED) {
+    perror("mmap failed");
+    exit(EXIT_FAILURE);
+}
+
+int fd = shm_open(argv[2], O_RDWR, 0666);
+arr =
+    mmap(NULL, 25 * sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0); // Connect the shared memory
+if (arr == MAP_FAILED) {
+    perror("mmap failed");
+    exit(EXIT_FAILURE);
+}
+
+////////////////////////////////////SHAREDMEMORY////////////////////////////
+
+struct mq_attr attr;
+attr.mq_flags = 0;
+attr.mq_maxmsg = 10;
+attr.mq_msgsize = 50;
+queue = mq_open(QUEUE_NAME, O_CREAT | O_RDWR, 0666, &attr); connect or create on the sender 
+
+if (queue == (mqd_t)-1) {
+    perror("mq_open failed");
+    exit(EXIT_FAILURE);
+}
+
+queue = mq_open(QUEUE_NAME, O_RDWR, 0666, NULL); // connect on the reciever
+if (queue == (mqd_t)-1) {
+    perror("mq_open failed");
+    exit(EXIT_FAILURE);
+}
+mq_send(queue, "Square", strlen("Square") + 1, 0);
+
+char buff[30];
+mq_receive(queue, buff, sizeof(buff), NULL);
+
+message queues can only recieve and send char
+ 
+char msg[30];
+strcpy(msg, "Hello from array!");
+if (mq_send(queue, msg, strlen(msg) + 1, 0) == -1) {
+    perror("mq_send failed");
+}
+////////////////////////////////////MSGQUEUES///////////////////////////////////
+
+if (child_B == 0) { //this is the child process converting into a program, make sure to include the executable in the build folder, example
+  // if you want to convert child b into process b, go to that folder do a make and drop the executable that's saved in that processb build into process a build
+  // that's for testing on your own. Usually the test already do something similar
+    execlp("./process_b", "process_b", argv[1], argv[2], NULL);
+    perror("execlp process_b failed");
+    exit(1);
+  }
+
+int main(int argc, char *argv[]) {
+  if (argc != 3) {
+    fprintf(stderr, "Usage: %s <queue_name> <shm_name>\n", argv[0]); // Correct way to show the user what they did wrong
+    exit(EXIT_FAILURE);
+  }
+
+//////////////////////////////////Forking/Main arguments////////////////////////
+
+example of reading user inputs
+
+printf("1. Square numbers\n2. Divide numbers by two\n3. Plot numbers\n");
+    int num;
+    scanf("%d", &num);
+    if (scanf("%d", &num) != 1) {
+    printf("Invalid input!\n");
+    while(getchar() != '\n'); // clear buffer
+    continue;
+    } // continue to read users input untill it gets it right xD
+    %s for char
+    $f is for floats
+    usually when you compile and have the wrong symbol it gives you a suggestion to fix and put the correct option 
+//////////////////////////////////////USER inputs////////////////////////////////
+
+FILE *file = fopen("../../commands.txt", "r");
+
+char line[50];
+  while (fgets(line, sizeof(line), file) != NULL) {
+    pid_t target_pid;
+    int sig;
+    // Remove newline at the end if present
+    line[strcspn(line, "\n")] = 0;
+    // Split the line by spaces
+    char *worker = strtok(line, " ");
+    char *signal_str = strtok(NULL, " ");
+
+    if (strcmp(worker, "worker1") == 0) {
+      target_pid = worker1_pid;
+    } else if (strcmp(worker, "worker2") == 0) {
+      target_pid = worker2_pid;
+    }
+
+    if (strcmp(signal_str, "SIGUSR1") == 0) {
+      sig = SIGUSR1;
+    } else if (strcmp(signal_str, "SIGUSR2") == 0) {
+      sig = SIGUSR2;
+    }
+    kill(target_pid, sig);
+    fprintf(stderr, "Sent %s to PID %d\n", signal_str, target_pid);
+
+
+/////////////////////////////////////Other///////////////////////////////////////
+
+// A good suggestion is to make the variable outside of main so you can use it for the handler and the main
+mqd_t queue;  
+pid_t child_B;
+pid_t child_C;
+float *arr = NULL;
+
+// This pauses the program from executing untill it recieves a signal it first goes to the handler and then continues going down the pause();
+pause();
+// Strcmp returns 0 if true 1 if false 
+if (strcmp(buff, "Square") == 0) {
+      for (int i = 0; i < 25; i++) {
+        arr[i] *= arr[i];
+      }
+

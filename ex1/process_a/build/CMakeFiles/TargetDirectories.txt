@@ -1,0 +1,3 @@
+/home/saul/project structure/PracticeforExam/Ex1Nat/process_a/build/CMakeFiles/process_a.dir
+/home/saul/project structure/PracticeforExam/Ex1Nat/process_a/build/CMakeFiles/edit_cache.dir
+/home/saul/project structure/PracticeforExam/Ex1Nat/process_a/build/CMakeFiles/rebuild_cache.dir

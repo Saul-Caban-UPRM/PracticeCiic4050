@@ -1,0 +1,282 @@
+#define _POSIX_C_SOURCE 200809L
+#include <fcntl.h>
+#include <mqueue.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#include "functions.h"
+/////////////////////////////////////INCLUDES///////////////////////////////
+
+void handle_signal(int signal){
+  do something here
+}
+
+struct sigaction sa;  // Name of variable 
+sa.sa_handler = handle_signal;
+if (sigaction(SIGINT, &sa, NULL) == -1) { // put the right signal!
+    perror("sigaction failed\n");
+    exit(1);
+  }
+
+Sends the signal to the child process PID, along side with the signal you want to send 
+kill(child_C, SIGUSR1);
+/////////////////////////////////////SIGNALS////////////////////////////////
+
+int fd = shm_open(SHM_NAME, O_CREAT | O_RDWR, 0666);
+ftruncate(fd, 100 * sizeof(double));
+arr = mmap(0, 100 * sizeof(double), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+if (arr == MAP_FAILED) {
+    perror("mmap failed");
+    exit(EXIT_FAILURE);
+}
+
+int fd = shm_open(argv[2], O_RDWR, 0666);
+arr =
+    mmap(NULL, 25 * sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0); // Connect the shared memory
+if (arr == MAP_FAILED) {
+    perror("mmap failed");
+    exit(EXIT_FAILURE);
+}
+
+////////////////////////////////////SHAREDMEMORY////////////////////////////
+
+struct mq_attr attr;
+attr.mq_flags = 0;
+attr.mq_maxmsg = 10;
+attr.mq_msgsize = 50;
+queue = mq_open(QUEUE_NAME, O_CREAT | O_RDWR, 0666, &attr); connect or create on the sender 
+
+if (queue == (mqd_t)-1) {
+    perror("mq_open failed");
+    exit(EXIT_FAILURE);
+}
+
+queue = mq_open(QUEUE_NAME, O_RDWR, 0666, NULL); // connect on the reciever
+if (queue == (mqd_t)-1) {
+    perror("mq_open failed");
+    exit(EXIT_FAILURE);
+}
+mq_send(queue, "Square", strlen("Square") + 1, 0);
+
+char buff[30];
+mq_receive(queue, buff, sizeof(buff), NULL);
+
+message queues can only recieve and send char
+ 
+char msg[30];
+strcpy(msg, "Hello from array!");
+if (mq_send(queue, msg, strlen(msg) + 1, 0) == -1) {
+    perror("mq_send failed");
+}
+////////////////////////////////////MSGQUEUES///////////////////////////////////
+
+if (child_B == 0) { //this is the child process converting into a program, make sure to include the executable in the build folder, example
+  // if you want to convert child b into process b, go to that folder do a make and drop the executable that's saved in that processb build into process a build
+  // that's for testing on your own. Usually the test already do something similar
+    execlp("./process_b", "process_b", argv[1], argv[2], NULL);
+    perror("execlp process_b failed");
+    exit(1);
+  }
+
+int main(int argc, char *argv[]) {
+  if (argc != 3) {
+    fprintf(stderr, "Usage: %s <queue_name> <shm_name>\n", argv[0]); // Correct way to show the user what they did wrong
+    exit(EXIT_FAILURE);
+  }
+
+//////////////////////////////////Forking/Main arguments////////////////////////
+
+example of reading user inputs
+
+printf("1. Square numbers\n2. Divide numbers by two\n3. Plot numbers\n");
+    int num;
+    scanf("%d", &num);
+    if (scanf("%d", &num) != 1) {
+    printf("Invalid input!\n");
+    while(getchar() != '\n'); // clear buffer
+    continue;
+    } // continue to read users input untill it gets it right xD
+    %s for char
+    $f is for floats
+    usually when you compile and have the wrong symbol it gives you a suggestion to fix and put the correct option 
+//////////////////////////////////////USER inputs////////////////////////////////
+
+FILE *file = fopen("../../commands.txt", "r");
+
+char line[50];
+  while (fgets(line, sizeof(line), file) != NULL) {
+    pid_t target_pid;
+    int sig;
+    // Remove newline at the end if present
+    line[strcspn(line, "\n")] = 0;
+    // Split the line by spaces
+    char *worker = strtok(line, " ");
+    char *signal_str = strtok(NULL, " ");
+
+    if (strcmp(worker, "worker1") == 0) {
+      target_pid = worker1_pid;
+    } else if (strcmp(worker, "worker2") == 0) {
+      target_pid = worker2_pid;
+    }
+
+    if (strcmp(signal_str, "SIGUSR1") == 0) {
+      sig = SIGUSR1;
+    } else if (strcmp(signal_str, "SIGUSR2") == 0) {
+      sig = SIGUSR2;
+    }
+    kill(target_pid, sig);
+    fprintf(stderr, "Sent %s to PID %d\n", signal_str, target_pid);
+
+
+/////////////////////////////////////Other///////////////////////////////////////
+
+// A good suggestion is to make the variable outside of main so you can use it for the handler and the main
+mqd_t queue;  
+pid_t child_B;
+pid_t child_C;
+float *arr = NULL;
+
+// This pauses the program from executing untill it recieves a signal it first goes to the handler and then continues going down the pause();
+pause();
+// Strcmp returns 0 if true 1 if false 
+if (strcmp(buff, "Square") == 0) {
+      for (int i = 0; i < 25; i++) {
+        arr[i] *= arr[i];
+      }
+
+/////////////////////////////////////Theory///////////////////////
+
+Why is it relevant to learn how to manage Unix-based operating systems?
+Because Unix-based operating systems are compliant with the POSIX standard, which facilitates code portability
+
+Why is it essential that operating systems are interrupt-driven systems? (Select two correct answers)
+Because interrupt-driven systems have more efficient CPU usage than busy-wait-based systems,
+Because the interrupt vector allows handling IO operations but also software errors or crashes
+
+GNU is not Unix is a system created in the 80s with the philosophy of:Providing a free and open-source operating system that respects user freedoms.
+Providing a free and open-source operating system that respects user freedoms.
+
+In a microkernel, most system services (such as file systems, device drivers, and memory management) run in kernel space,
+whereas in a monolithic kernel, these services run in user space to improve modularity and security.
+false
+
+Program Execution execlp()
+Inter-Process Communication Services mq_send()/ mq_receive()
+
+Resource Allocation mmap()
+I/O Operations read() / write()
+
+-  Which of the following statements correctly describes the differences between concurrent and parallel execution of processes in an operating system? (Select two correct answers).
+ In concurrent execution, multiple processes progress over time, but not necessarily simultaneously. Parallel execution requires multiple CPU cores, while concurrent execution can occur on a single core using context-switching.
+
+-  What happens to a process if the stack overflows due to poor software design?
+ The process may overwrite adjacent memory, leading to undefined behavior or security vulnerabilities. Possibly causes a termination due to a segmentation fault.
+
+- Semaphores help prevent race conditions by ensuring that multiple processes or threads do not access shared resources simultaneously in an unsafe manner.
+True
+
+- Two processes are trying to communicate using an SHM block with the codes below. Why does the program fail? 
+PROCESS A: #define SHM_NAME "/shm_example" #define SHM_SIZE 1024 
+int main() {     int fd = shm_open(SHM_NAME, O_RDWR, 0666);     ftruncate(fd, SHM_SIZE);     char *shm_ptr = mmap(NULL, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0); if (shm_ptr == MAP_FAILED) {   perror("Writer: mmap failed");   exit(1); } strcpy(shm_ptr, "Hello from writer!");     printf("Writer: Data written.\n");     ...     munmap(shm_ptr, SHM_SIZE); } 
+
+PROCESS B: #define SHM_NAME "/shm_example" #define SHM_SIZE 1024 
+int main() {     int fd = shm_open(SHM_NAME, O_RDWR, 0666);     ftruncate(fd, SHM_SIZE);     char *shm_ptr = mmap(NULL, SHM_SIZE, PROT_READ, MAP_SHARED, fd, 0); if (shm_ptr == MAP_FAILED) {   perror("Writer: mmap failed");   exit(1); }     printf("Reader: Read from shared memory: %s\n", shm_ptr);     ...     munmap(shm_ptr, SHM_SIZE);     return 0; }
+
+ The shared memory object does not exist because neither process created it.
+
+- This C program attempts to handle the SIGINT signal (Ctrl+C) but is missing one line in the signal configuration.
+ // Signal handler function 
+void handle_sigint(int sig) {     printf("Caught SIGINT! Exiting safely...\n");     exit(0); } 
+int main() {     struct sigaction sa;     //missing line     sa.sa_flags = 0;     if (sigaction(SIGINT, &sa, NULL) == -1) {         perror("sigaction failed");         exit(1);     }     printf("Press Ctrl+C to test SIGINT handling...\n");     while (1) {         sleep(1);     }     return 0; } 
+Which of the following options correctly configures the signal?
+ sa.sa_handler = handle_sigint;
+
+- What happens if a process that has created a child using fork() terminates before the child process?
+ The child process becomes orphaned and is adopted by systemd.
+
+-  What is the main requirement for the ftok function to complete without throwing an error:
+ The first argument contains a folder or file that must exist on the OS.
+
+-  If a process has launched three child processes and wants to wait specifically for one of them, which function should it use? (type the name of the function)
+waitpid
+
+-  What happens if there is a msg_queue between two processes and the subscriber dies?
+The producer will block if configured by default since the queue will get full rapidly.
+
+-  What happens if I declare a variable inside a thread and return the address of that variable?
+ It does not work correctly because local variables are stored in the thread stack.
+
+
+What is the primary purpose of POSIX message queues in interprocess
+communication (IPC)?
+
+To allow structured message
+exchange between processes
+asynchronously.
+
+How are POSIX message queues uniquely identified in the system?
+By a name prefixed with /,
+similar to a file path.
+
+Which function is used to create or open a POSIX message queue?
+mq_open()
+
+Which of the following attributes is NOT managed using mq_getattr() or
+mq_setattr()?
+File system permissions of the
+queue
+
+Which function is used to permanently remove a POSIX message queue from
+the system?
+mq_unlink()
+
+Which of this is an OS service regarding file systems
+Create directories
+
+Which of this OS does not use a monolithic kernel
+Minix
+
+A monolithic kernel
+Includes all the capabilities in
+the same module
+Is faster but harder to maintain
+
+Android and iOS structures are similar because
+they are layered OS with
+different frameworks for
+developers
+
+Which of the following is not a typical operating system system call?
+printf() 
+
+Waiting for a child process to end
+Allows to clean resources and
+avoid background executions
+
+The fork( ) function
+duplicates the current process
+creating a clone child process
+
+a zombie process
+may affect the system
+performance even though it
+does not use CPU or memory
+
+it died and nobody was waiting
+
+The exec function
+is a POSIX function that allows
+a process to "transform" into
+another process
+
+Waiting for a child process to end
+Allows to clean resources and
+avoid background executions
+
