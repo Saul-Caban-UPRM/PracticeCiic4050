@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/worker.dir/src/main.c.o -o worker  -lm 
