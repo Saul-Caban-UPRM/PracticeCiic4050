@@ -12,11 +12,11 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define NUM_HORSES 5
-#define TRACK_LENGTH 50
+#define HORSES 5
+#define TRACK 50
 
-int track[NUM_HORSES] = {0};
-int finish_order[NUM_HORSES];
+int track[HORSES] = {0};
+int finish_order[HORSES];
 int finish_count = 0;
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -29,12 +29,12 @@ void* horse_run(void* arg) {
     usleep(10000);          // simulate gallop
 
     pthread_mutex_lock(&mutex);
-    if (track[id] < TRACK_LENGTH) {
+    if (track[id] < TRACK) {
       track[id] += step;
-      if (track[id] > TRACK_LENGTH) track[id] = TRACK_LENGTH;
+      if (track[id] > TRACK) track[id] = TRACK;
       printf("Horse %d moves to %d\n", id, track[id]);
 
-      if (track[id] >= TRACK_LENGTH) {
+      if (track[id] >= TRACK) {
         finish_order[finish_count++] = id;
         printf("Horse %d finished the race!\n", id);
         pthread_mutex_unlock(&mutex);
@@ -49,20 +49,20 @@ void* horse_run(void* arg) {
 
 int main() {
   srand(time(NULL));
-  pthread_t horses[NUM_HORSES];
+  pthread_t horses[HORSES];
 
-  for (int i = 0; i < NUM_HORSES; i++) {
+  for (int i = 0; i < HORSES; i++) {
     int* id = malloc(sizeof(int));
     *id = i;
     pthread_create(&horses[i], NULL, horse_run, id);
   }
 
-  for (int i = 0; i < NUM_HORSES; i++) {
+  for (int i = 0; i < HORSES; i++) {
     pthread_join(horses[i], NULL);
   }
 
   printf("Final results\n");
-  for (int i = 0; i < NUM_HORSES; i++) {
+  for (int i = 0; i < HORSES; i++) {
     printf("Place %d: Horse %d\n", i + 1, finish_order[i]);
   }
 
