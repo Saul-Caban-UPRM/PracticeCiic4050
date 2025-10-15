@@ -1,2 +1,0 @@
-Total sum of primes between 1 and 1,000,000: 37550402023
-Total number of primes between 1 and 1,000,000: 78498
