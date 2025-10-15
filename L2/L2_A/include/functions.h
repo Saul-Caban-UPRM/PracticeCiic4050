@@ -1,0 +1,5 @@
+
+#ifndef INCLUDE_FUNCTIONS_H_
+#define INCLUDE_FUNCTIONS_H_
+
+#endif  // INCLUDE_FUNCTIONS_H_

@@ -1,0 +1,37 @@
+This Part B time
+
+
+Total sum of primes between 1 and 1,000,000: 37550402023
+Total number of primes between 1 and 1,000,000: 78498
+
+real    0m0.199s
+user    0m0.328s
+sys     0m0.012s
+
+Total sum of primes between 1 and 1,000,000: 37550402023
+Total number of primes between 1 and 1,000,000: 78498
+
+real    0m0.199s
+user    0m0.325s
+sys     0m0.011s
+
+Total sum of primes between 1 and 1,000,000: 37550402023
+Total number of primes between 1 and 1,000,000: 78498
+
+real    0m0.196s
+user    0m0.319s
+sys     0m0.012s
+
+Total sum of primes between 1 and 1,000,000: 37550402023
+Total number of primes between 1 and 1,000,000: 78498
+
+real    0m0.236s
+user    0m0.372s
+sys     0m0.013s
+
+Total sum of primes between 1 and 1,000,000: 37550402023
+Total number of primes between 1 and 1,000,000: 78498
+
+real    0m0.187s
+user    0m0.313s
+sys     0m0.013s
