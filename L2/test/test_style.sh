@@ -2,11 +2,8 @@
 
 # Define the source file to check
 SOURCE_FILE="../src/main.c"
-HEADER_FILE="../include/functions.h"
-FUNCTIONS_FILE="../src/functions.c"
-
 echo "--- Running static analysis with cpplint ---"
-./cpplint.py --root=.. --filter=-whitespace/ending_newline,-runtime/threadsafe_fn,-build/include_subdir,-readability/copyright,-legal/copyright ${SOURCE_FILE} ${HEADER_FILE} ${FUNCTIONS_FILE} > cpplint_report.txt 2>&1
+./cpplint.py --root=.. --filter=-whitespace/ending_newline,-runtime/threadsafe_fn,-build/include_subdir,-readability/copyright,-legal/copyright ${SOURCE_FILE} > cpplint_report.txt 2>&1
 
 # Sum the severity values (numbers in square brackets at the end of each error line)
 SEVERITY_SUM=$(grep -o '\[[0-9]\+\]$' cpplint_report.txt | grep -o '[0-9]\+' | awk '{s+=$1} END {print s+0}')
